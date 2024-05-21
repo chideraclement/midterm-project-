@@ -1,34 +1,102 @@
-/*
-File Context:
 
-The objective of this JavaScript file is to handle form submission by sending the form data to 1 of the various free APIs withinn your conntact page of your project. This involves utilizing the Fetch API with an expansion object to be able to send data and employing DOM manipulation to retrieve the data from your contact form.
+// Context
 
-As these APIs are  meant to be used for testing purposes, they do not actually store data, the main focus is on validating the success of the form submission by examining the HTTP response code. It's essential to choose an appropriate API from the provided list to ensure compatibility with the form submission process.
+// We will be  using the FETCH Method aka fetchAPI to create(POST HTTP Method) a new resoruce/post into the
+// API RESOURCE: "https://jsonplaceholder.typicode.com/posts",
 
-Context:
-- API Resources: 
-Students are provided with a selection of free APIs to choose 1 from. These APIs are simulated and do not persistently store data. The available APIs include:
-  - https://jsonplaceholder.typicode.com/posts
-  - https://jsonplaceholder.typicode.com/comments
-  - https://jsonplaceholder.typicode.com/albums
-  - https://fakestoreapi.com/products
-  - https://dummyjson.com/products
+// Working Example
+// Useing as reff
 
-- Form Data Submission: Upon form submission, the data is sent to the selected API endpoint using the Fetch API's POST method.
-- Validation: Success of the form submission is validated by examining the HTTP response code. A response code within the range of 200-299 indicates a successful submission.
-- Consideration: Given the variety of available APIs, students must analyze and choose an appropriate API endpoint that aligns with the intended functionality of their contact form.
+// fetch("https://jsonplaceholder.typicode.com/posts", {
+//   method: "POST",
+//   body: JSON.stringify({
+//     title: "foo",
+//     body: "bar",
+//     userId: 1,
+//   }),
+//   headers: {
+//     "Content-type": "application/json; charset=UTF-8",
+//   },
+// })
+//   .then((response) => response.json())
+//   .then((json) => console.log(json));
 
-Implementation:
-- Async Function with Parameters: The sendForm function is defined as an asynchronous function expression, accepting a parameter representing the event object received upon form submission.
-- Preventing Default Behavior: The preventDefault() method is utilized to prevent the default form submission behavior, enabling custom handling of form data submission.
-- DOM Selection: Input elements within the form are selected using the Document Object Model (DOM) to retrieve user-entered data.
-- Fetch API Usage: The Fetch API is leveraged to send a POST request to the selected API endpoint, including the form data in JSON format within the request body.
-- Response Validation: Upon receiving a response from the API, the HTTP response code is examined to determine the success of the form submission. A response code within the 200-299 range signifies success.
-- Resetting Form Inputs: Upon successful form submission, input fields are reset to their initial state to prepare for potential subsequent submissions.
+// -----
+// -----
+// -----
+// -----
 
-Conclusion:
-In conclusion, this JavaScript file facilitates the submission of form data to 1 of the various free APIs, enabling students to practice handling form submissions in a simulated environment. By validating the success of the submission through examination of the HTTP response code, students can ensure the functionality of their contact form. Careful consideration of the selected API endpoint is essential to ensure compatibility and successful data transmission.
+// My Code
+// Async/Await
+// Try Catch Blocks - Legibility
+// NOTE: Remember that when we connect functions to events such as clicks, hover, or any type of events, we can use the functions paramters ()  to get extra info about the event itserlf!
+const sendForm = async (extraInfoReceivedFromClickEvent) => {
+  // This sytax prevents the form from refreshing the page on submission, using the method below!
+  extraInfoReceivedFromClickEvent.preventDefault();
 
- You can delete the comments above or copy the comments and save them for reference in another file.
+  // Let's connect to some HTML elements via DOM
+  let nameInput = document.querySelector("#name").value; // This info is going to be sennt out in the key of 'title' withinn the API
+  let emailInput = document.querySelector("#email").value; // This info is going to be sennt out in the key of 'body' withinn the API
+  let phoneInput = document.querySelector("#phone").value; // This info is going to be sennt out in the key of 'body' withinn the API
+  let messageInput = document.querySelector("#message").value; // This info is going to be sennt out in the key of 'body' withinn the API
 
-*/
+  // Using the fetch method
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "POST",
+      body: JSON.stringify({
+        title: nameInput, // somethinng we recieve from the form, // This key is matching to 1 of the keys  available
+        body: `${emailInput}, ${phoneInput}, ${messageInput}`, // somethinng we recieve from the form,  // This key is matching to 1 of the keys  available
+        userId: 10, // // This key is matching to 1 of the keys  available but ixs hardCoded given that there is only 10 users!
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+    // L:ayer of security, in case of HTTTP ERROR, we want to see the error + some info
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    // Let's add some logic to display the alert windopw that is created through html + CSS
+    console.log(response);
+    const userResponseCleaned = await response.json();
+    console.log(userResponseCleaned);
+
+    // Reset input values after successful form submission
+    document.querySelector("#name").value = "";
+    document.querySelector("#email").value = "";
+    document.querySelector("#phone").value = "";
+    document.querySelector("#message").value = "";
+  } catch (error) {
+    console.error("Error", error);
+  }
+};
+
+// DOM Selectio to connect my function 'sendForm' to the submit
+document.querySelector(".btn-submit").addEventListener("click", sendForm);
+
+// fetch("https://jsonplaceholder.typicode.com/posts", {
+//   // The first thing you use when you expand the fetch method with the object is the method key
+//   // This key specifies  which type of HTTP Request Method You will be using
+//   // THe string value for the method key ALWAYS has to be in uppercase
+//   method: "POST", //  - POST: Submits data to the server to create a new resource.
+//   //  The second key is the body key
+//   // Why the body key?
+//   // Cause the body keyis the hardest to program due to the syntax being hard to read
+//   // Also, the body key is where the info will be sent out in!
+//   body: JSON.stringify({
+//     // JSON.stringify - this methods transforms your jsObjects/code into jsonObjects or code that is readable in JSON FORMAT
+//     title: "", // somethinng we recieve from the form, // This key is matching to 1 of the keys  available
+//     body: "", // somethinng we recieve from the form,  // This key is matching to 1 of the keys  available
+//     userId: 10, // // This key is matching to 1 of the keys  available but ixs hardCoded given that there is only 10 users!
+//   }),
+//   // The thrid Key is the headers key
+//   // This key is used to send extra information 'under the hood' to the request!\
+//   // Why ????
+//   // For the simple reason that  even though we use the FETCH to send info, we have to specify what type of info is being sent out!
+//   headers: {
+//     "Content-type": "application/json; charset=UTF-8", // Content-type key is top tell hey this content is a json format content with the capacity to be read out by UTF-8 universal unicoding!
+//     // IF YOUR API IS PRIVATE OR RESTRICTED, MEANING YOU NEED A API KEY, 10/10 THE HEADERS OBJECT INISDE THE OBEJCT EXPANISON IS WHERE YOU PLACE THEM
+//   },
+// });

@@ -758,8 +758,15 @@ textarea {
   color: #6b708d;
   font-weight: 1000;
   line-height: 150%;
-  margin: 30px 0 50px 0;
+  margin: 30px 0 5px 0;
   width: 150%;
+}
+.text-fix2 {
+  font-weight: 200px;
+  font-size: 1.2rem;
+  width: 1000px;
+text-align: end;
+margin-bottom: 70px;
 }
 
 .world-image {

@@ -1,4 +1,3 @@
-
 // Context
 
 // We will be  using the FETCH Method aka fetchAPI to create(POST HTTP Method) a new resoruce/post into the

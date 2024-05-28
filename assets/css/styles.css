@@ -23,6 +23,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 body {
@@ -31,13 +32,10 @@ body {
   font-weight: 300;
   background-color: #f2f4fc;
   color: #292e47;
+  font-size: 16px; 
+  margin: 20px  50px;
 }
 
-section,
-footer {
-  max-width: 1063px;
-  margin: auto;
-}
 
 /* ------------------------------------------------------------------------ */
 /* ------------------------------ INDEX html ------------------------------ */
@@ -232,6 +230,12 @@ nav {
   margin: 75px auto;
 }
 
+/* .size {
+  width: 80%;
+  
+} */
+
+
 .nav-links a {
   text-decoration: none;
   color: #6c718b;
@@ -303,6 +307,7 @@ nav {
 
 #img-block {
   position: relative;
+  width: 50%;
 }
 
 #main-img {
@@ -335,6 +340,7 @@ nav {
 
 .title h2 {
   font-size: 2.5rem;
+  margin-left: 120px;
 }
 
 .projects-container {
@@ -343,6 +349,8 @@ nav {
   grid-template-rows: 1fr;
   grid-column-gap: 25px;
   grid-row-gap: 0px;
+  margin-left: 120px;
+  margin-right: 120px;
 }
 
 .project {
@@ -351,10 +359,14 @@ nav {
 }
 
 .project img {
-  width: 100%;
+ 
+  width: 150%;
   height: 240px;
+  border-radius: 0%;
+ width:fit-content;
+  background-color: #A2D6F9; 
 }
-
+ 
 .project h3 {
   font-size: 1.3rem;
   margin: 27px;
@@ -372,11 +384,284 @@ nav {
   margin: 0 27px 27px 27px;
 }
 
-/* ----------------------------------------------------------------------------- */
-/* ------------------------------ CONTACT-US html ------------------------------ */
-/* ----------------------------------------------------------------------------- */
+/* --------emoji sections------ */
 
-/* ------------------------------ Form ------------------------------ */
+.testimonial {
+  position: relative;
+  background-color: #292e47;
+  color: white;
+  padding: 60px;
+ margin-top: 100px;
+ margin-left: 80px;
+ margin-right: 80px;
+ margin-bottom: 100px;
+ background-image: url('/assets/images/testimonial-section/orbit.png');
+}
+
+.testimonial-memojis {
+position: absolute;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+display: flex;
+justify-content: space-between;
+align-items: space-between;
+}
+
+.testimonial-memoji1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  margin-left: 100px;
+  margin-top: 20px;
+}
+
+.testimonial-memoji2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  margin-right: 100px;
+  margin-top: 20px;
+}
+
+.testimonial-memoji3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  margin-left: 100px;
+  margin-bottom:  20px;
+}
+
+.testimonial-memoji4 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  margin-right: 100px;
+margin-bottom:  20px;
+}
+
+.testimonial-text {
+text-align: center;
+margin: 0 auto;
+max-width: 600px;
+font-size: 180%;
+}
+.testimonial-profile {
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 20px;
+}
+
+.testimonial-text p {
+  color: #fce300;
+  margin: 30px;
+  font-size: 120%;
+
+}
+
+.testimonial-profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+
+/* service sections  */
+
+.service-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 25px; 
+  margin: 40px 0 75px 0; 
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.services {
+  background-color: white; 
+  padding: 20px;
+  margin: 0 15px;
+  margin-bottom: 10px;
+}
+
+.services img {
+  width: 10%; 
+  max-height: 150px; 
+  object-fit: cover;
+ color: #A2D6F9;
+}
+ .services h3 {
+  font-size: 1.5rem; 
+  margin: 20px 0; 
+ }
+
+ .services p {
+  font-size: 1.2rem; 
+  margin: 0;
+ }
+
+
+.services a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #072ac8; 
+}
+
+/* ----------Contact us section---------- */
+
+.contact-us {
+  padding: 50px 0;
+  background-color: #ffc600;
+  margin-top: 150px;
+}
+
+.question-form {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.question-form h2 {
+  font-size: 2rem;
+}
+
+.subscriber-form {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  
+}
+
+.email {
+  width: 30px;
+  height: 30px;
+ margin-left: 20px;
+
+}
+
+
+input[type="email"] {
+  flex: 1;
+  padding: 10px 100px;
+  border-radius: 5px;
+  background-color: white;
+  margin-left: 80px;
+  margin-top: 30px;
+  
+}
+
+button {
+  padding: 25px 25px;
+  background-color: #072ac8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+/* ------Footer section------ */
+
+.footer {
+  padding: 40px 0;
+}
+
+.footer-container {
+  display: grid;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.footer-fix {
+  flex: 1;
+}
+
+
+.grid-links {
+  display: grid;
+}
+
+.footer-image {
+  width: 100px;
+  margin-bottom: 20px;
+}
+.address {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+
+.footer-links {
+  flex: 2;
+}
+
+
+.footer-load {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin-left: 300px;
+
+}
+
+.footer-links li {
+ 
+  flex: 1 1 33.333%;
+  margin-bottom: 10px;
+}
+
+
+.footer-links a {
+  text-decoration: none;
+  color: #072ac8;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* scroll up section  */
+
+
+.scroll-up {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #072ac8;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000; 
+  display: none; 
+}
+
+.scroll-up:hover {
+  background-color: #292e47; 
+}
+
+
+
+/* -------form section-------- */
+
 .form-container form {
   display: flex;
   flex-direction: column;
@@ -387,11 +672,13 @@ nav {
   justify-content: space-between;
 }
 
+
 .email-phone div {
-  width: 49.5%;
+  width: 48.5%;
   display: flex;
   flex-direction: column;
 }
+
 
 #contact-main,
 #project-main {
@@ -442,6 +729,67 @@ textarea {
 .btn-submit:hover {
   background-color: #292e47;
 }
+
+
+/* ----
+----------Going into the project session page------------  */
+
+
+#main2 {
+  width: 80vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 150px;
+}
+
+#main2 > div {
+  width: 46%;
+}
+
+.text-part h1 {
+  width: 160%;
+  font-size: 3.9rem;
+  color: #292e47;
+}
+
+.text-fix {
+  font-size: 1.3rem;
+  color: #6b708d;
+  font-weight: 1000;
+  line-height: 150%;
+  margin: 30px 0 50px 0;
+  width: 150%;
+}
+
+.world-image {
+  position: relative;
+  width: 50%;
+  margin-left: 150px;
+}
+
+.normal {
+  font-size: 1.3rem;
+  color: #6b708d;
+  font-weight: 1000;
+  line-height: 150%;
+  margin: 30px 0 50px 0;
+  width: 150%;
+  margin-top: 80px;
+}
+
+
+.the-image {
+  width: 1000px;
+  height: 500px;
+
+  
+
+
+
+
+
+
 
 /* --------------------------------------------------------------------------- */
 /* ------------------------------ MEDIA QUERIES ------------------------------ */
@@ -539,26 +887,27 @@ textarea {
   }
 
   /* ------------------------------ Client reviews ------------------------------ */
-  .memoji-1,
-  .memoji-2,
-  .memoji-3,
-  .memoji-4 {
-    width: 96px;
-    height: 96px;
-  }
-  .autor-testimonial {
-    display: flex;
-    justify-content: center;
-    width: 50%;
-  }
-  #top-contact-btn {
-    display: none;
-  }
-  .txt-title h1 {
-    font-size: 3rem;
-    color: #292e47;
-  }
+.emoji-container {
+ 
+ background-color: #181313;
+background-size: cover;
+
 }
+
+
+
+
+
+
+
+
+
+
+
+ }
+
+
+
 
 /* ------------------------- Smaller than 766px (mobile) ------------------------- */
 @media (max-width: 766px) {
@@ -583,12 +932,12 @@ textarea {
   }
 
   /* ------------------------------ Client reviews ------------------------------ */
-  .memoji-1,
+  /* .memoji-1,
   .memoji-2,
   .memoji-3,
   .memoji-4 {
-    display: none;
-  }
+    display: none; */
+  
   #reviews {
     justify-content: center;
     height: 370px;
@@ -601,14 +950,16 @@ textarea {
   }
 
   /* ------------------------------ Services ------------------------------ */
-  .services-container {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 44px;
-    grid-row-gap: 44px;
-    margin: 0 44px 0 44px;
-  }
+
+       width: 100%;
+    } 
+
+
+
+
+
+
+
 
   /* ------------------------------ Questions form ------------------------------ */
   .email-subscribe {
@@ -655,6 +1006,7 @@ textarea {
     margin-top: 120px;
     margin-bottom: 120px;
   }
+
   .bottom-logo {
     text-align: center;
     margin-bottom: 30px;
@@ -875,3 +1227,52 @@ textarea {
 .closebtn:hover {
   color: black;
 }
+
+/* ------------------------sliding logos */ 
+.slider {
+  width: 99vw;
+  overflow-x: hidden;
+  margin-top: 200px;
+  margin-bottom: 200px;
+}
+
+.slide-track {
+         display: flex;
+        height: 100%;
+        animation: scrolling 20s linear infinite;
+}
+
+@keyframes scrolling {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-140vw);
+  }
+}
+
+  .slide-track a {
+    width: 20vw;
+    flex-shrink: 0;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+.slide {
+  margin: 0 auto;
+  filter: grayscale(1);
+  width: 9rem;
+  transition: 1s;
+ 
+}
+
+
+.slide:hover {
+  transform: translateZ(20px);
+  filter: grayscale(0);
+}
+
+
